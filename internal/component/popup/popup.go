@@ -7,12 +7,12 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
-func ShowPopup(w fyne.Window, content *canvas.Text) {
+func ShowPopup(title string, w fyne.Window, content *canvas.Text) {
 	var popup *widget.PopUp
 
 	popUpContent := container.NewVBox(
 		content,
-		widget.NewButton("Close", func() {
+		widget.NewButton(title, func() {
 			popup.Hide()
 		}),
 	)

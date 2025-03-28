@@ -21,7 +21,7 @@ func main() {
 		color.Black)
 
 	showPopUpButton.OnTapped = func() {
-		popup.ShowPopup(w, content)
+		popup.ShowPopup("Close", w, content)
 	}
 
 	w.Resize(fyne.NewSize(800, 480))
