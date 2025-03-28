@@ -7,16 +7,18 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
-func ShowPopup(title string, w fyne.Window, content *canvas.Text) {
-	var popup *widget.PopUp
+func ShowPopup(title string, w fyne.Window, content *canvas.Text) func() {
+	return func() {
+		var popup *widget.PopUp
 
-	popUpContent := container.NewVBox(
-		content,
-		widget.NewButton(title, func() {
-			popup.Hide()
-		}),
-	)
+		popUpContent := container.NewVBox(
+			content,
+			widget.NewButton(title, func() {
+				popup.Hide()
+			}),
+		)
 
-	popup = widget.NewModalPopUp(popUpContent, w.Canvas())
-	popup.Show()
+		popup = widget.NewModalPopUp(popUpContent, w.Canvas())
+		popup.Show()
+	}
 }

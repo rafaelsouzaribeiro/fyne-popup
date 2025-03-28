@@ -20,9 +20,7 @@ func main() {
 	content := canvas.NewText("This is the content of the pop-up",
 		color.Black)
 
-	showPopUpButton.OnTapped = func() {
-		popup.ShowPopup("Close", w, content)
-	}
+	showPopUpButton.OnTapped = popup.ShowPopup("Close", w, content)
 
 	w.Resize(fyne.NewSize(800, 480))
 	w.SetContent(container.NewVBox(
